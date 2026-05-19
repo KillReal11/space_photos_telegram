@@ -9,9 +9,11 @@ Then use `pip` (or `pip3`, if there is a conflict with Python2) to install depen
 ```
 pip install -r requirements.txt
 ```
-To launch sripts you you need to get such data as NASA API key and telegram API-token. They are stored in `.env` file in the root folder. Also frequency setting stored in `.env`.
+To launch sripts you you need to get such data as NASA API key and telegram API-token. They are stored in `.env` file in the root folder. You can get them using this links: https://api.nasa.gov/, https://telegram.me/BotFather.
 
-You can get them using this links: https://api.nasa.gov/, https://telegram.me/BotFather.
+Also `FREQUENCY`, proxy url (`PROXY_SOCKS5`) and telegram chat id (`TG_CHAT_ID`) settings are stored in `.env`. You need to fill in the mentioned data in the `.env` file.
+
+
 
 ### Usage example
 

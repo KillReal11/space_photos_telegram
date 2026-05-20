@@ -5,9 +5,8 @@ from get_files_functions import get_image_name_extension, download_photo
 from parse_inputs import parse_quantity
 
 
-def get_apod_images(nasa_api_key, proxy):
+def get_apod_images(nasa_api_key, proxy, quantity):
     apod_url = 'https://api.nasa.gov/planetary/apod'
-    quantity = parse_quantity()
     params = {'api_key': nasa_api_key, 'count': quantity}
     proxies = {'https': proxy}
     response = requests.get(apod_url, params=params, proxies=proxies, verify=False)
@@ -24,7 +23,8 @@ def main():
     load_dotenv()
     proxy = os.getenv("PROXY_SOCKS5")
     nasa_api_key = os.getenv("NASA_API_KEY")
-    get_apod_images(nasa_api_key=nasa_api_key, proxy=proxy)
+    quantity = parse_quantity()
+    get_apod_images(nasa_api_key=nasa_api_key, proxy=proxy, quantity=quantity)
 
 
 if __name__ == '__main__':

@@ -5,9 +5,8 @@ from dotenv import load_dotenv
 import os
 
 
-def fetch_spacex_last_launch(proxy):
+def fetch_spacex_last_launch(proxy, spacex_id):
     proxies = {'https': proxy}
-    spacex_id = parse_id()
     spacex_url = f'https://api.spacexdata.com/v5/launches/{spacex_id}'
     path = 'images/spacex'
     response = requests.get(spacex_url, proxies=proxies, verify=False)
@@ -22,7 +21,8 @@ def fetch_spacex_last_launch(proxy):
 def main():
     load_dotenv()
     proxy = os.getenv("PROXY_SOCKS5")
-    fetch_spacex_last_launch(proxy=proxy)
+    spacex_id = parse_id()
+    fetch_spacex_last_launch(proxy=proxy, spacex_id=spacex_id)
 
 
 if __name__ == '__main__':

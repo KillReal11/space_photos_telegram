@@ -6,8 +6,7 @@ import os
 from dotenv import load_dotenv
 
 
-def get_epic_images(proxy):
-    quantity = int(parse_quantity())
+def get_epic_images(proxy, quantity):
     epic_url_all = 'https://epic.gsfc.nasa.gov/api/natural'
     proxies = {'https': proxy}
     response = requests.get(epic_url_all, proxies=proxies, verify=False)
@@ -26,7 +25,8 @@ def get_epic_images(proxy):
 def main():
     load_dotenv()
     proxy = os.getenv("PROXY_SOCKS5")
-    get_epic_images(proxy=proxy)
+    quantity = int(parse_quantity())
+    get_epic_images(proxy=proxy, quantity=quantity)
 
 
 if __name__ == '__main__':
